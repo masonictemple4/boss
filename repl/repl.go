@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"io"
 
+	"github.com/masonictemple4/boss/evaluator"
 	"github.com/masonictemple4/boss/lexer"
 	"github.com/masonictemple4/boss/parser"
 )
@@ -48,8 +49,11 @@ func Start(in io.Reader, out io.Writer) {
 			continue
 		}
 
-		io.WriteString(out, program.String())
-		io.WriteString(out, "\n")
+		evalutated := evaluator.Eval(program)
+		if evalutated != nil {
+			io.WriteString(out, evalutated.Inspect())
+			io.WriteString(out, "\n")
+		}
 
 	}
 }
