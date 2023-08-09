@@ -7,6 +7,7 @@ import (
 
 	"github.com/masonictemple4/boss/evaluator"
 	"github.com/masonictemple4/boss/lexer"
+	"github.com/masonictemple4/boss/object"
 	"github.com/masonictemple4/boss/parser"
 )
 
@@ -30,6 +31,7 @@ const LOGO = `
 // To enable function definitions, etc..
 func Start(in io.Reader, out io.Writer) {
 	scanner := bufio.NewScanner(in)
+	env := object.NewEnvironment()
 
 	for {
 		fmt.Fprintf(out, PROMPT)
@@ -49,7 +51,7 @@ func Start(in io.Reader, out io.Writer) {
 			continue
 		}
 
-		evalutated := evaluator.Eval(program)
+		evalutated := evaluator.Eval(program, env)
 		if evalutated != nil {
 			io.WriteString(out, evalutated.Inspect())
 			io.WriteString(out, "\n")
