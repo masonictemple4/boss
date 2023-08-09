@@ -9,6 +9,7 @@ const (
 	BOOLEAN_OBJ      = "BOOLEAN"
 	NULL_OBJ         = "NULL"
 	RETURN_VALUE_OBJ = "RETURN"
+	ERROR_OBJ        = "ERROR"
 )
 
 type Object interface {
@@ -41,3 +42,12 @@ type ReturnValue struct {
 
 func (rv *ReturnValue) Inspect() string  { return RETURN_VALUE_OBJ }
 func (rv *ReturnValue) Type() ObjectType { return rv.Value.Type() }
+
+// CHALLENGE: Add stack tracing. This will require line and column numbers attacched
+// to the tokens by the lexer.
+type Error struct {
+	Message string
+}
+
+func (e *Error) Inspect() string  { return "ERROR: " + e.Message }
+func (e *Error) Type() ObjectType { return ERROR_OBJ }
