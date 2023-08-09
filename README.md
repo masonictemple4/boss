@@ -24,3 +24,6 @@ let add fn(a, b) {
 ```
 
 **A return statement:** `return <expression>;`
+
+###### Challenges
+- [ ] Implement a different `evaluation` strategy.
