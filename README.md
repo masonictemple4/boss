@@ -37,6 +37,8 @@ GC which is already a massive task ontop of managing our own memory.
 - 4.2 - Strings
 - 4.3 - Built-in functions
 - 4.4 - Array
+- 4.5 - Hashes
+
 
 
 ### Adding support for another datatype.
