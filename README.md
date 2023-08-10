@@ -35,6 +35,7 @@ GC which is already a massive task ontop of managing our own memory.
 #### Current Section/Chapter
 4 Extending the Interpreter
 - 4.2 - Strings
+- 4.3 - Built-in functions
 
 
 ### Adding support for another datatype.
@@ -45,3 +46,5 @@ GC which is already a massive task ontop of managing our own memory.
 5. Add the type to the object system.
 6. Add support in evaluation.
 7. Test in repl.
+
+
