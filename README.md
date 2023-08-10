@@ -23,7 +23,13 @@ let add fn(a, b) {
 };
 ```
 
+Because our host language is Go, we benefit from it's built-in GC,
+adding our own would require us to actively avoid and disable the Go
+GC which is already a massive task ontop of managing our own memory. 
+
 **A return statement:** `return <expression>;`
 
 ###### Challenges
 - [ ] Implement a different `evaluation` strategy.
+
+
