@@ -58,6 +58,9 @@ func (l *Lexer) NextToken() token.Token {
 		tok = newToken(token.LPAREN, l.ch)
 	case ')':
 		tok = newToken(token.RPAREN, l.ch)
+	case '"':
+		tok.Type = token.STRING
+		tok.Literal = l.readString()
 	case ',':
 		tok = newToken(token.COMMA, l.ch)
 	case '{':
@@ -134,6 +137,18 @@ func (l *Lexer) readNumber() string {
 	currPos := l.position
 	for isDigit(l.ch) {
 		l.readChar()
+	}
+	return l.input[currPos:l.position]
+}
+
+// CHALLENGE: Add support for escape characters.
+func (l *Lexer) readString() string {
+	currPos := l.position + 1 // +1 to skip the opening "
+	for {
+		l.readChar()
+		if l.ch == '"' || l.ch == 0 {
+			break
+		}
 	}
 	return l.input[currPos:l.position]
 }
