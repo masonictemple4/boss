@@ -36,6 +36,7 @@ GC which is already a massive task ontop of managing our own memory.
 4 Extending the Interpreter
 - 4.2 - Strings
 - 4.3 - Built-in functions
+- 4.4 - Array
 
 
 ### Adding support for another datatype.
