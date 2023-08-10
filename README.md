@@ -32,4 +32,16 @@ GC which is already a massive task ontop of managing our own memory.
 ###### Challenges
 - [ ] Implement a different `evaluation` strategy.
 
+#### Current Section/Chapter
+4 Extending the Interpreter
+- 4.2 - Strings
 
+
+### Adding support for another datatype.
+1. Add the token type in the token package
+2. Add support in the lexer.
+3. Add type to ast. (I.e StringLiteral)
+4. Add parsing support.
+5. Add the type to the object system.
+6. Add support in evaluation.
+7. Test in repl.
